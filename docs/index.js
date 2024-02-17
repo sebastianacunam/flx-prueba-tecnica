@@ -5,7 +5,7 @@
 
 function reverseString(str) {
   // Tu solución acá  
-  return str.split("").reverse().join("");
+  return str.split('').reverse().join('');
 }
 
 /*
@@ -15,6 +15,15 @@ function reverseString(str) {
 */
 function isPalindrome(str) {
   // Tu solución acá
+  const cleanedStr = str.toLowerCase()
+  const reversedStr = cleanedStr.split('').reverse().join('');
+
+  if(cleanedStr !== reversedStr){
+    return false;
+  } else {
+    return true;
+  }
+
 }
 
 /*
@@ -32,6 +41,20 @@ function isPalindrome(str) {
 
 function closestPair(arr) {
   // Tu solución acá
+  arr.sort((a, b) => a - b);
+  
+  let minDiff = Infinity;
+  let resultPair = [];
+
+  for (let i = 0; i < arr.length - 1; i++) {
+    const diff = Math.abs(arr[i] - arr[i + 1]);
+    if (diff < minDiff) {
+      minDiff = diff;
+      resultPair = [arr[i], arr[i + 1]];
+    }
+  }
+
+  return resultPair;
 }
 
 
@@ -69,7 +92,44 @@ function closestPair(arr) {
 
 class Calculator {
   // Tu solución acá
+  constructor(){
+    this.lastResult = 0;
+  }
+
+  add(a,b){
+    return this.lastResult = a + b;
+  }
+  
+  subtract(a, b){
+    return this.lastResult = a - b;
+  }
+  
+  multiply(a, b){
+    return this.lastResult = a * b;
+  }
+
+  divide(a, b){
+    if(b === 0) throw new Error ('Division by zero is not allowed');
+    return this.lastResult = a / b;
+  }
+
+  getLastResult() {
+    return this.lastResult;
+  }
 }
+
+// Además de estos métodos, debes agregar una función más compleja a la clase Calculator, 
+// que calcule la potencia de un número. 
+// Esta función debe ser asignada al prototipo de la clase y se llamará exponentiate(base, exponent). 
+// Esta función toma dos argumentos: la base y el exponente, y devuelve la base elevada a la potencia del exponente. 
+// La función debe manejar correctamente los casos donde el exponente es cero o negativo, lanzando un error en este último caso.
+// Además, actualiza el último resultado calculado.
+
+Calculator.prototype.exponentiate = function (base, exponent){
+  if (exponent < 0) throw new Error ('Exponentiation with negative exponent is not allowed');
+  return this.lastResult = Math.pow(base, exponent)
+}
+
 
 module.exports = {
   closestPair,
