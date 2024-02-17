@@ -5,6 +5,7 @@
 
 function reverseString(str) {
   // Tu solución acá  
+  return str.split("").reverse().join("");
 }
 
 /*
