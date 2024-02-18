@@ -1,0 +1,12 @@
+.navBar-container{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-self: flex-start;
+    padding-left: 140px;
+}
+
+.navBar-inputs{
+    display: flex;
+    flex-direction: row;
+}
