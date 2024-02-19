@@ -8,6 +8,7 @@ import '../../assets/scss/layout/_table.scss'
 
 export default function tableComponent () {
   const users = useSelector((state)=>state.allUsers)
+  
   const dispatch = useDispatch();
 
   useEffect(()=>{
