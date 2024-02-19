@@ -12,18 +12,20 @@ export default function AddUserBotton () {
 
   function validate (input){
     let errors = {};
-    const regExp =
-    /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    const regExp = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    const onlyNumbers = /^[1-9]\d*$/
 
     if(!input.username) errors.username = 'Este campo es requerido'
     if(!input.name) errors.name = 'Este campo es requerido'
     if(!input.lastname) errors.lastname = 'Este campo es requerido'
-    if(!input.age) errors.age = 'Este campo es requerido'
+    if(!input.status || input.status === '-') errors.status = 'Debe seleccionar un estado'
     
-    if(!input.status || input.status === '-'){ 
-      errors.status = 'Debe seleccionar un estado'
+    if(!input.age) {
+      errors.age = 'Este campo es requerido'
+    } else if(!input.age.match(onlyNumbers)) {
+      errors.age = 'Deben ser números positivos'
     }
-    
+
     if(!input.email){
         errors.email = 'Este campo es requerido'
     }else if(!input.email.match(regExp)){
@@ -147,7 +149,8 @@ export default function AddUserBotton () {
 
               <div className='btn-form-post'>
               {
-                    !input.name || !input.lastname || !input.email || input.status === '-' || !input.age || !input.username ? 
+                    // !input.name || !input.lastname || !input.email || input.status === '-' || !input.age || !input.username ? 
+                    errors.name || errors.lastname || errors.email || errors.status || errors.age || errors.username ?
                     <Button onClick={(e)=>handleSubmit(e)} type='primary' size={size} disabled>
                      Agregar usuario
                     </Button>
