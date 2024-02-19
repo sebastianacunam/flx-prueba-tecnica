@@ -9,4 +9,16 @@
 .navBar-inputs{
     display: flex;
     flex-direction: row;
+    justify-content:space-between;
 }
+
+.navBar-left{
+    display: flex;
+    flex-direction: row;
+    margin: 0 10px;
+}
+
+.navBar-right{
+    padding-right: 120px;
+}
+

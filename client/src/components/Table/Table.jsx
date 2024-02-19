@@ -12,7 +12,7 @@ export default function tableComponent () {
 
   useEffect(()=>{
     dispatch(getUsers())
-  },[])
+  },[dispatch])
 
 
   const columns = [
@@ -46,6 +46,18 @@ export default function tableComponent () {
       title: 'Estado',
       key: 'status',
       dataIndex: 'status',
+      render: (text, record) => (
+        <span key={record.id}>
+          {text.split(',').map((tag) => {
+            let color = tag === 'active' ? 'green' : 'volcano';
+            return (
+              <Tag color={color} key={tag}>
+                {tag.trim().toUpperCase()}
+              </Tag>
+            );
+          })}
+        </span>
+      ),
       
     },
     {
@@ -64,8 +76,8 @@ export default function tableComponent () {
     <div>
       <NavBar />
       <div className='table-container'>
-        <div className='inner-table'>
-          <Table columns={columns} dataSource={users}/>
+        <div className='inner-table' >
+          <Table columns={columns} dataSource={users} rowKey="id" />
         </div>
       </div>
     </div>
