@@ -20,12 +20,12 @@ const InputSelect = () => {
                 }
                 options={[
                 {
-                    value: 'activo',
-                    label: 'activo',
+                    value: 'active',
+                    label: 'active',
                 },
                 {
-                    value: 'inactivo',
-                    label: 'inactivo',
+                    value: 'inactive',
+                    label: 'inactive',
                 },
                 ]}
             />
