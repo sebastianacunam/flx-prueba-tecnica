@@ -149,16 +149,15 @@ export default function AddUserBotton () {
 
               <div className='btn-form-post'>
               {
-                    // !input.name || !input.lastname || !input.email || input.status === '-' || !input.age || !input.username ? 
-                    errors.name || errors.lastname || errors.email || errors.status || errors.age || errors.username ?
-                    <Button onClick={(e)=>handleSubmit(e)} type='primary' size={size} disabled>
-                     Agregar usuario
-                    </Button>
-                    : 
-                    <Button onClick={(e)=>handleSubmit(e)} type='primary' size={size}>
-                      Agregar usuario
-                     </Button>
-                    }
+                errors.name || errors.lastname || errors.email || errors.status || errors.age || errors.username ?
+                <Button onClick={(e)=>handleSubmit(e)} type='primary' size={size} disabled>
+                  Agregar usuario
+                </Button>
+                : 
+                <Button onClick={(e)=>handleSubmit(e)} type='primary' size={size}>
+                  Agregar usuario
+                  </Button>
+              }
               </div>
             </form>
           </div>
