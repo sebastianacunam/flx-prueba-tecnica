@@ -1,9 +1,10 @@
 import { DownloadOutlined } from '@ant-design/icons';
 import { Button, Radio } from 'antd';
-import React, { useState } from 'react';
+import { React, useEffect, useState } from 'react';
 import { createUser, getUsers } from '../../redux/actions/actionUser.js';
-import '../../assets/scss/layout/_addUserBotton.scss'
 import { useDispatch } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
+import '../../assets/scss/layout/_addUserBotton.scss'
 
 
 
@@ -43,8 +44,13 @@ export default function AddUserBotton () {
     lastname: '',
     email: '',
     status: '',
-    age: ''
+    age: '',
+    id: uuidv4()
   });
+
+  useEffect(() => {
+    dispatch(getUsers());
+  }, [dispatch, input]);
 
   function handleChange(e){
     setInput({
@@ -55,21 +61,20 @@ export default function AddUserBotton () {
         ...input,
         [e.target.name]: e.target.value
     }))
-}
+  }
 
   function handleSubmit(e){
     e.preventDefault();
     if(input.name && input.lastname && input.email && input.status && input.age){
         alert('Usuario creado satisfactoriamente')
         dispatch(createUser(input));
-        dispatch(getUsers());
         setInput({
-            username: '',
-            name: '',
-            lastname: '',
-            email: '',
-            status: '',
-            age: ''
+          username: '',
+          name: '',
+          lastname: '',
+          email: '',
+          status: '',
+          age: ''
         })
         setShowPopup(false)
     } else  { 
