@@ -67,8 +67,6 @@ export function removeUser(payload){
 export function putUser(payload){
     return async function(dispatch){
         try {
-
-            console.log('payload desde actions',payload)
             const json = await  clienteAxios.put(`/users/${payload.id}`, payload);
             return dispatch({
                 type: PUT_USER,
