@@ -449,6 +449,24 @@
       "email": "grace.allen@example.com",
       "status": "active",
       "age": 32
+    },
+    {
+      "username": "catafox",
+      "name": "Catalina",
+      "lastname": "Fox",
+      "email": "catafox1@gmail.com",
+      "status": "active",
+      "age": "25",
+      "id": 53
+    },
+    {
+      "username": "jesus",
+      "name": "jesus",
+      "lastname": "jesus",
+      "email": "jesus@jesus.com",
+      "status": "active",
+      "age": "15",
+      "id": "053d1460-aaa9-4dbd-8887-b0327e77e6c1"
     }
   ]
 }

@@ -1,9 +1,8 @@
-import { DownloadOutlined } from '@ant-design/icons';
-import { Button, Radio } from 'antd';
 import { React, useEffect, useState } from 'react';
 import { createUser, getUsers } from '../../redux/actions/actionUser.js';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
+import { Button } from 'antd';
 import '../../assets/scss/layout/_addUserBotton.scss'
 
 

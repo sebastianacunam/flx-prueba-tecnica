@@ -1,5 +1,5 @@
 import clienteAxios from '../../config/clienteAxios.js'
-import { GET_USERS, GET_SEARCH, POST_USER } from '../utils/constants.js'
+import { GET_USERS, GET_SEARCH, POST_USER, FILTER_STATUS, REMOVE_USER, PUT_USER } from '../utils/constants.js'
 
 export function getUsers(){
     return async function(dispatch){
@@ -35,6 +35,43 @@ export function createUser(payload){
             const json = await clienteAxios.post(`/users`, payload)
             return dispatch({
                 type: POST_USER,
+                payload: json.data
+            })
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
+}
+
+export function filterStatus(payload){
+    return {
+        type: FILTER_STATUS,
+        payload
+    }
+}
+
+export function removeUser(payload){
+    return async function(dispatch){
+        try {
+            const json = await clienteAxios.delete(`/users/${payload}`)
+            return dispatch ({
+                type: REMOVE_USER,
+                payload: json.data
+            })
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
+}
+
+export function putUser(payload){
+    return async function(dispatch){
+        try {
+
+            console.log('payload desde actions',payload)
+            const json = await  clienteAxios.put(`/users/${payload.id}`, payload);
+            return dispatch({
+                type: PUT_USER,
                 payload: json.data
             })
         } catch (error) {
