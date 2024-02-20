@@ -38,7 +38,6 @@ function rootReducer(state = initialState, action) {
         delete: action.payload
       }
     case PUT_USER:
-      console.log('desde el reducer: ',action.payload)
       return {
         ...state,
         put: action.payload

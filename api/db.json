@@ -467,6 +467,24 @@
       "status": "active",
       "age": "15",
       "id": "053d1460-aaa9-4dbd-8887-b0327e77e6c1"
+    },
+    {
+      "username": "UulaMaria",
+      "name": "Uula",
+      "lastname": "Maria",
+      "email": "uulamaria@example.com",
+      "status": "active",
+      "age": "3",
+      "id": "94b12029-f750-4d36-98bf-9dae67551ab6"
+    },
+    {
+      "username": "Jesussam",
+      "name": "Jesús",
+      "lastname": "Milano",
+      "email": "jesus@example.com",
+      "status": "inactive",
+      "age": "25",
+      "id": 55
     }
   ]
 }
